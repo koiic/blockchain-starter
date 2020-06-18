@@ -16,19 +16,16 @@ if __name__ == '__main__':
 
     #createNewBlock, getLastBlock, createNewTransaction, hashBlock, proofOfWork
     last_block = bitcoin.get_last_block()
-    print(last_block, '-----')
     previous_block_hash = last_block.get('hash')
 
     #calculate nonce
     nonce = bitcoin.proof_of_work(previous_block_hash, bitcoin.new_transactions)
-    print(nonce, '+++++++++')
 
     #hash the block
     hash = bitcoin.hash_block(previous_block_hash, bitcoin.new_transactions, nonce)
 
     #create new block
     bitcoin.create_new_block(nonce, previous_block_hash, hash)
-    print(bitcoin, '=======>>>>')
 
     # STAGE TWO
     # Create new transactions
