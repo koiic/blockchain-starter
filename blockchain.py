@@ -15,7 +15,7 @@ class BlockChain():
             hash=hash,
             previous_block_hash=previous_block_hash
         )
-        self.chain.append(new_block);
+        self.chain.append(new_block)
         self.new_transactions = []
         return new_block
 
@@ -34,7 +34,6 @@ class BlockChain():
     def hash_block(self, previous_block_hash, current_block_data, nonce):
         data_as_string = f'{previous_block_hash}{str(nonce)}{str(current_block_data)}'
         hash = hashlib.sha256(data_as_string.encode()).hexdigest()
-        # print(hash[0:4])
         return hash
 
     def proof_of_work(self, previous_block_hash, current_block_data):
