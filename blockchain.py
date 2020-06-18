@@ -9,7 +9,7 @@ class BlockChain():
     def create_new_block(self, nonce, previous_block_hash, hash):
         new_block = dict(
             index=len(self.chain) + 1,
-            time_stamp=datetime.datetime.now(),
+            time_stamp=datetime.datetime.now().timestamp(),
             transactions=self.new_transactions,
             nonce=nonce,
             hash=hash,
@@ -23,11 +23,11 @@ class BlockChain():
         return self.chain[-1] if self.chain else None
 
     def create_new_transaction(self, amount, sender, recipient):
-        new_transaction = {
-            amount: amount,
-            sender: sender,
-            recipient: recipient
-        }
+        new_transaction = dict(
+            amount=amount,
+            sender=sender,
+            recipient=recipient
+        )
         self.new_transactions.append(new_transaction)
         return self.get_last_block()['index'] + 1 if self.chain else None
 
