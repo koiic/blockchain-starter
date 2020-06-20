@@ -1,6 +1,8 @@
 import datetime
 import hashlib
 
+TPCoins = []
+
 
 class BlockChain():
     chain = []
@@ -43,6 +45,7 @@ class BlockChain():
             nonce += 1
             hash = self.hash_block(previous_block_hash, current_block_data, nonce)
         return nonce
+
 
     def __str__(self):
         return f'chain : {self.chain}, transaction : {self.new_transactions}'
