@@ -1,19 +1,5 @@
-import hashlib
-import random
-import string
-import json
 import binascii
-import numpy as np
-import pandas as pd
-import pylab as pl
-import logging
-import datetime
-import collections
 
-# from Crypto import Random
-# # from Crypto.Hash import SHA
-# from Crypto.PublicKey import RSA
-# from Crypto.Signature import PKCS1_v1_5
 from Crypto import Random
 from Crypto.PublicKey import RSA
 from Crypto.Signature import PKCS1_v1_5
@@ -29,9 +15,7 @@ class Client:
 
     @property
     def identity(self):
-        # print(binascii.hexlify(self._public_key.exportKey(format('DER'))), '--->>>')
-        return \
-            binascii.hexlify(self._public_key.exportKey(format='DER')).decode('ascii')
+        return binascii.hexlify(self._public_key.exportKey(format='DER')).decode('ascii')
 
 
 
